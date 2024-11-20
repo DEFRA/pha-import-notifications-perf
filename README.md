@@ -18,29 +18,36 @@ The CDP Platform runs test suites in much the same way it runs any other service
 ## Local Testing with LocalStack
 
 ### Build a new Docker image
-```
+
+```bash
 docker build . -t my-performance-tests
 ```
+
 ### Create a Localstack bucket
-```
+
+```bash
 aws --endpoint-url=localhost:4566 s3 mb s3://my-bucket
 ```
 
 ### Run performance tests
 
-```
+```bash
 docker run \
--e S3_ENDPOINT='http://host.docker.internal:4566' \
--e RESULTS_OUTPUT_S3_PATH='s3://my-bucket' \
--e AWS_ACCESS_KEY_ID='test' \
--e AWS_SECRET_ACCESS_KEY='test' \
--e AWS_SECRET_KEY='test' \
--e AWS_REGION='eu-west-2' \
-my-performance-tests
+  -e S3_ENDPOINT='http://host.docker.internal:4566' \
+  -e RESULTS_OUTPUT_S3_PATH='s3://my-bucket' \
+  -e AWS_ACCESS_KEY_ID='test' \
+  -e AWS_SECRET_ACCESS_KEY='test' \
+  -e AWS_SECRET_KEY='test' \
+  -e AWS_REGION='eu-west-2' \
+  -e TEST_PROTOCOL='http' \
+  -e TEST_HOSTNAME='host.docker.internal' \
+  -e TEST_PORT=8080 \
+  my-performance-tests
 ```
+
+View test results at [s3://my-bucket](http://localhost:4566/my-bucket/index.html).
 
 docker run -e S3_ENDPOINT='http://host.docker.internal:4566' -e RESULTS_OUTPUT_S3_PATH='s3://cdp-infra-dev-test-results/cdp-portal-perf-tests/95a01432-8f47-40d2-8233-76514da2236a' -e AWS_ACCESS_KEY_ID='test' -e AWS_SECRET_ACCESS_KEY='test' -e AWS_SECRET_KEY='test' -e AWS_REGION='eu-west-2' -e ENVIRONMENT='perf-test' my-performance-tests
-
 
 ## Licence
 
