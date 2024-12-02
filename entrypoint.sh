@@ -2,37 +2,23 @@
 
 echo "run_id: $RUN_ID in $ENVIRONMENT"
 
-NOW=$(date +"%Y%m%d-%H%M%S")
+K6_HOME=/opt/perftest
+K6_SCENARIOS=${K6_HOME}/scenarios
+K6_REPORT=index.html
+K6_SUMMARY=summary.json
 
-if [ -z "${JM_HOME}" ]; then
-  JM_HOME=/opt/perftest
-fi
-
-JM_SCENARIOS=${JM_HOME}/scenarios
-JM_REPORTS=${JM_HOME}/reports
-JM_LOGS=${JM_HOME}/logs
-
-mkdir -p ${JM_REPORTS} ${JM_LOGS}
-
-SCENARIOFILE=${JM_SCENARIOS}/${TEST_SCENARIO}.jmx
-REPORTFILE=${NOW}-perftest-${TEST_SCENARIO}-report.csv
-LOGFILE=${JM_LOGS}/perftest-${TEST_SCENARIO}.log
-
-# Run the test suite
-jmeter -n -t ${SCENARIOFILE} -e -l "${REPORTFILE}" -o ${JM_REPORTS} -j ${LOGFILE} -f -Jprotocol="${TEST_PROTOCOL}" -Jhostname="${TEST_HOSTNAME}" -Jport="${TEST_PORT}"
+k6 run ${K6_SCENARIOS}/${TEST_SCENARIO}.js --summary-export=${K6_SUMMARY}
 test_exit_code=$?
 
-# Publish the results into S3 so they can be displayed in the CDP Portal
 if [ -n "$RESULTS_OUTPUT_S3_PATH" ]; then
-  # Copy the CSV report file and the generated report files to the S3 bucket
-  if [ -f "$JM_REPORTS/index.html" ]; then
-    aws --endpoint-url=$S3_ENDPOINT s3 cp "$REPORTFILE" "$RESULTS_OUTPUT_S3_PATH/$REPORTFILE"
-    aws --endpoint-url=$S3_ENDPOINT s3 cp "$JM_REPORTS" "$RESULTS_OUTPUT_S3_PATH" --recursive
+  if [ -f "$K6_REPORT" -a -f "$K6_SUMMARY" ]; then
+    aws --endpoint-url=$S3_ENDPOINT s3 cp "$K6_REPORT" "$RESULTS_OUTPUT_S3_PATH/$K6_REPORT"
+    aws --endpoint-url=$S3_ENDPOINT s3 cp "$K6_SUMMARY" "$RESULTS_OUTPUT_S3_PATH/$K6_SUMMARY"
     if [ $? -eq 0 ]; then
-      echo "CSV report file and test results published to $RESULTS_OUTPUT_S3_PATH"
+      echo "HTML and summary report files published to $RESULTS_OUTPUT_S3_PATH"
     fi
   else
-    echo "$JM_REPORTS/index.html is not found"
+    echo "$K6_REPORT or $K6_SUMMARY not found"
     exit 1
   fi
 else

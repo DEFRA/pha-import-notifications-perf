@@ -1,35 +1,20 @@
 # pha-import-notifications-perf
 
-A JMeter based test runner for the CDP Platform.
+Performance tests for PHA import notifications.
 
-- [Licence](#licence)
-  - [About the licence](#about-the-licence)
+## Tests
 
-## Build
+### Build
 
-Test suites are built automatically by the [.github/workflows/publish.yml](.github/workflows/publish.yml) action whenever a change are committed to the `main` branch.
-A successful build results in a Docker container that is capable of running your tests on the CDP Platform and publishing the results to the CDP Portal.
-
-## Run
-
-The performance test suites are designed to be run from the CDP Portal.
-The CDP Platform runs test suites in much the same way it runs any other service, it takes a docker image and runs it as an ECS task, automatically provisioning infrastructure as required.
-
-## Local Testing with LocalStack
-
-### Build a new Docker image
+Build as follows:
 
 ```bash
 docker build . -t my-performance-tests
 ```
 
-### Create a Localstack bucket
+### Run
 
-```bash
-aws --endpoint-url=localhost:4566 s3 mb s3://my-bucket
-```
-
-### Run performance tests
+Run as follows:
 
 ```bash
 docker run \
@@ -39,17 +24,11 @@ docker run \
   -e AWS_SECRET_ACCESS_KEY='test' \
   -e AWS_SECRET_KEY='test' \
   -e AWS_REGION='eu-west-2' \
-  -e TEST_PROTOCOL='http' \
-  -e TEST_HOSTNAME='host.docker.internal' \
-  -e TEST_PORT=8080 \
+  -e BASE_URL='http://host.docker.internal:8080' \
   my-performance-tests
 ```
 
-View test results at [s3://my-bucket](http://localhost:4566/my-bucket/index.html).
-
-docker run -e S3_ENDPOINT='http://host.docker.internal:4566' -e RESULTS_OUTPUT_S3_PATH='s3://cdp-infra-dev-test-results/cdp-portal-perf-tests/95a01432-8f47-40d2-8233-76514da2236a' -e AWS_ACCESS_KEY_ID='test' -e AWS_SECRET_ACCESS_KEY='test' -e AWS_SECRET_KEY='test' -e AWS_REGION='eu-west-2' -e ENVIRONMENT='perf-test' my-performance-tests
-
-## Licence
+## License
 
 THIS INFORMATION IS LICENSED UNDER THE CONDITIONS OF THE OPEN GOVERNMENT LICENCE found at:
 
