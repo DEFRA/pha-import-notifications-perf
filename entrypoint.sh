@@ -7,7 +7,7 @@ K6_SCENARIOS=${K6_HOME}/scenarios
 K6_REPORT=index.html
 K6_SUMMARY=summary.json
 
-k6 run ${K6_SCENARIOS}/${TEST_SCENARIO}.js --summary-export=${K6_SUMMARY}
+k6 run -e BASE_URL=https://pha-import-notifications.perf-test.cdp-int.defra.cloud ${K6_SCENARIOS}/${TEST_SCENARIO}.js --summary-export=${K6_SUMMARY}
 test_exit_code=$?
 
 if [ -n "$RESULTS_OUTPUT_S3_PATH" ]; then
