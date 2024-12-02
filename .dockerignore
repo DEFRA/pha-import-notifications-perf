@@ -1,7 +1,8 @@
-node_modules
-Dockerfile
 .git
 .github
 .husky
-jmeter.log
-reports/
+node_modules
+index.html
+LICENSE
+README.md
+summary.json

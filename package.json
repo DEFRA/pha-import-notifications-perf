@@ -1,0 +1,13 @@
+{
+  "name": "pha-import-notifications-perf",
+  "version": "0.2.0",
+  "description": "Performance tests for PHA import notifications.",
+  "scripts": {
+    "test": "k6 run -e BASE_URL=http://localhost:8080 scenarios/test.js --summary-export=summary.json"
+  },
+  "author": "Defra DDTS",
+  "license": "OGL-UK-3.0",
+  "devDependencies": {
+    "@types/k6": "^0.54.2"
+  }
+}
