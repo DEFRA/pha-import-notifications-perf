@@ -1,6 +1,6 @@
 import http from 'k6/http';
 import {check} from 'k6';
-import {htmlReport} from 'https://raw.githubusercontent.com/benc-uk/k6-reporter/2.4.0/dist/bundle.js';
+import {htmlReport} from '../k6-reporter-2.4.0.js';
 
 export const options = {
   thresholds: {
