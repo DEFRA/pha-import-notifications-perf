@@ -1,0 +1,24 @@
+{
+  "importNotifications": [
+    {
+      "scenario": "Example CHED-A.",
+      "referenceNumber": "CHEDA.GB.2024.4792831"
+    },
+    {
+      "scenario": "Example CHED-D with linked movements.",
+      "referenceNumber": "CHEDD.GB.2024.5019877"
+    },
+    {
+      "scenario": "Example CHED-P.",
+      "referenceNumber": "CHEDP.GB.2024.4144842"
+    },
+    {
+      "scenario": "Example CHED-PP.",
+      "referenceNumber": "CHEDPP.GB.2024.3726460"
+    },
+    {
+      "scenario": "Example CHED-A with linked movements.",
+      "referenceNumber": "CHEDA.GB.2024.5129502"
+    }
+  ]
+}

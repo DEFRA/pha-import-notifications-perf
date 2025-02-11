@@ -1,8 +1,29 @@
 # pha-import-notifications-perf
 
-Performance tests for PHA import notifications.
+Performance tests for PHA import notifications service.
 
-## Tests
+## Pre-requisites
+
+### Environment variables
+
+Environment variables must be set as follows:
+
+- `K6_TARGET_URL` is the URL of the service.
+- `K6_WORKLOAD` is the target workload. Available values are smoke (default), load, stress, spike.
+- `K6_THRESHOLD` is the target threshold. Available values are low (default), medium or high.
+- `TEST_CLIENT_LOGIN_URL` is the authentication URL.
+- `TEST_CLIENT_APP_ID` is the allocated client id.
+- `TEST_CLIENT_SECRET` is the allocated client secret.
+
+## Usage
+
+### Local
+
+Run as follows:
+
+```bash
+k6 run src/tests/updates.js --summary-export=summary.json
+```
 
 ### Build
 
@@ -11,8 +32,6 @@ Build as follows:
 ```bash
 docker build . -t my-performance-tests
 ```
-
-### Run
 
 Run as follows:
 
@@ -24,7 +43,9 @@ docker run \
   -e AWS_SECRET_ACCESS_KEY='test' \
   -e AWS_SECRET_KEY='test' \
   -e AWS_REGION='eu-west-2' \
-  -e BASE_URL='http://host.docker.internal:8080' \
+  -e TEST_CLIENT_LOGIN_URL='<value>' \
+  -e TEST_CLIENT_APP_ID='<value>' \
+  -e TEST_CLIENT_SECRET='<value>' \
   my-performance-tests
 ```
 

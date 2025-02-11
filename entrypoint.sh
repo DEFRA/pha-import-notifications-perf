@@ -3,11 +3,20 @@
 echo "run_id: $RUN_ID in $ENVIRONMENT"
 
 K6_HOME=/opt/perftest
-K6_SCENARIOS=${K6_HOME}/scenarios
 K6_REPORT=index.html
 K6_SUMMARY=summary.json
 
-k6 run -e BASE_URL=https://pha-import-notifications.perf-test.cdp-int.defra.cloud ${K6_SCENARIOS}/${TEST_SCENARIO}.js --summary-export=${K6_SUMMARY}
+export HTTPS_PROXY=http://localhost:3128
+
+k6 run \
+  -e K6_TARGET_URL=https://pha-import-notifications.perf-test.cdp-int.defra.cloud \
+  -e K6_WORKLOAD=smoke \
+  -e K6_THRESHOLD=low \
+  -e TEST_CLIENT_LOGIN_URL=${TEST_CLIENT_LOGIN_URL} \
+  -e TEST_CLIENT_APP_ID=${TEST_CLIENT_APP_ID} \
+  -e TEST_CLIENT_SECRET=${TEST_CLIENT_SECRET} \
+  ${K6_HOME}/src/tests/updates.js \
+  --summary-export=${K6_SUMMARY}
 test_exit_code=$?
 
 if [ -n "$RESULTS_OUTPUT_S3_PATH" ]; then
