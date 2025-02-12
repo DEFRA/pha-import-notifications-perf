@@ -6,6 +6,8 @@ K6_HOME=/opt/perftest
 K6_REPORT=index.html
 K6_SUMMARY=summary.json
 
+HTTPS_PROXY=http://localhost:3128
+
 k6 run \
   -e K6_TARGET_URL=https://pha-import-notifications.perf-test.cdp-int.defra.cloud \
   -e K6_WORKLOAD=smoke \
@@ -13,7 +15,6 @@ k6 run \
   -e TEST_CLIENT_LOGIN_URL=${TEST_CLIENT_LOGIN_URL} \
   -e TEST_CLIENT_APP_ID=${TEST_CLIENT_APP_ID} \
   -e TEST_CLIENT_SECRET=${TEST_CLIENT_SECRET} \
-  -e HTTPS_PROXY=http://localhost:3128 \
   ${K6_HOME}/src/tests/updates.js \
   --summary-export=${K6_SUMMARY}
 test_exit_code=$?
