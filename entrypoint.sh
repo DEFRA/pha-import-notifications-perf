@@ -13,6 +13,7 @@ k6 run \
   -e TEST_CLIENT_LOGIN_URL=${TEST_CLIENT_LOGIN_URL} \
   -e TEST_CLIENT_APP_ID=${TEST_CLIENT_APP_ID} \
   -e TEST_CLIENT_SECRET=${TEST_CLIENT_SECRET} \
+  -e HTTPS_PROXY=http://localhost:3128 \
   ${K6_HOME}/src/tests/updates.js \
   --summary-export=${K6_SUMMARY}
 test_exit_code=$?
