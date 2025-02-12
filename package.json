@@ -1,6 +1,6 @@
 {
   "name": "pha-import-notifications-perf",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Performance tests for PHA import notifications.",
   "author": "Defra DDTS",
   "license": "OGL-UK-3.0",
