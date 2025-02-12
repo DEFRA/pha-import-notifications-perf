@@ -10,6 +10,9 @@ k6 run \
   -e K6_TARGET_URL=https://pha-import-notifications.perf-test.cdp-int.defra.cloud \
   -e K6_WORKLOAD=smoke \
   -e K6_THRESHOLD=low \
+  -e TEST_CLIENT_LOGIN_URL=${TEST_CLIENT_LOGIN_URL} \
+  -e TEST_CLIENT_APP_ID=${TEST_CLIENT_APP_ID} \
+  -e TEST_CLIENT_SECRET=${TEST_CLIENT_SECRET} \
   ${K6_HOME}/src/tests/updates.js \
   --summary-export=${K6_SUMMARY}
 test_exit_code=$?
