@@ -8,8 +8,8 @@ K6_SUMMARY=summary.json
 
 HTTPS_PROXY=http://localhost:3128
 
-curl -x $HTTPS_PROXY --request POST "${TEST_CLIENT_LOGIN_URL}" \
-  --header 'Content-Type: application/x-www-form-urlencoded' \
+curl -v -x $HTTPS_PROXY "${TEST_CLIENT_LOGIN_URL}/oauth2/token" \
+  --header "Content-Type: application/x-www-form-urlencoded" \
   --data-urlencode "grant_type=client_credentials" \
   --data-urlencode "client_id=${TEST_CLIENT_APP_ID}" \
   --data-urlencode "client_secret=${TEST_CLIENT_SECRET}"
