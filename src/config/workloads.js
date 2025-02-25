@@ -15,11 +15,11 @@ const config = {
     rate: 1200,
     timeUnit: '15m',
   },
-  // Ramp up to 1000 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
+  // Ramp up to 1500 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
   spike: {
     executor: 'ramping-vus',
     stages: [
-      {duration: '1m', target: 1000},
+      {duration: '1m', target: 1500},
       {duration: '30s', target: 0},
     ],
   },
