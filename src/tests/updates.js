@@ -41,20 +41,18 @@ export default function (accessToken) {
         r.json().hasOwnProperty('importNotifications'),
     });
 
-    // TODO: Remove loop when test data is updated, results in 15 requests, the target (average) is 13.175859517
-    for (let i = 0; i < 3; i++) {
-      for (const importNotification of testData) {
-        const response = service.getImportNotification(
-          accessToken,
-          importNotification.referenceNumber
-        );
+    // Results in 14 requests, the target (average) is 13.175859517
+    for (const importNotification of testData) {
+      const response = service.getImportNotification(
+        accessToken,
+        importNotification.referenceNumber
+      );
 
-        check(response, {
-          'is status 200': (r) => r.status === 200,
-          'verify reference number': (r) =>
-            r.json().referenceNumber === importNotification.referenceNumber,
-        });
-      }
+      check(response, {
+        'is status 200': (r) => r.status === 200,
+        'verify reference number': (r) =>
+          r.json().referenceNumber === importNotification.referenceNumber,
+      });
     }
   });
 }

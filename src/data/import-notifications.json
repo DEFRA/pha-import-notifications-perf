@@ -1,24 +1,60 @@
 {
   "importNotifications": [
     {
-      "scenario": "Example CHED-A.",
+      "scenario": "Example: CHED-A.",
       "referenceNumber": "CHEDA.GB.2024.4792831"
     },
     {
-      "scenario": "Example CHED-D with linked movements.",
+      "scenario": "Example: CHED-D with linked movements.",
       "referenceNumber": "CHEDD.GB.2024.5019877"
     },
     {
-      "scenario": "Example CHED-P.",
+      "scenario": "Example: CHED-P.",
       "referenceNumber": "CHEDP.GB.2024.4144842"
     },
     {
-      "scenario": "Example CHED-PP.",
+      "scenario": "Example: CHED-PP.",
       "referenceNumber": "CHEDPP.GB.2024.3726460"
     },
     {
-      "scenario": "Example CHED-A with linked movements.",
+      "scenario": "Example: CHED-A with linked movements.",
       "referenceNumber": "CHEDA.GB.2024.5129502"
+    },
+    {
+      "scenario": "PHA: N/A.",
+      "referenceNumber": "CHEDD.GB.2024.5226413"
+    },
+    {
+      "scenario": "PHA: N/A.",
+      "referenceNumber": "CHEDD.GB.2024.5351769"
+    },
+    {
+      "scenario": "PHA: N/A.",
+      "referenceNumber": "CHEDD.GB.2024.5118377"
+    },
+    {
+      "scenario": "PHA: N/A.",
+      "referenceNumber": "CHEDP.GB.2024.5093007"
+    },
+    {
+      "scenario": "PHA: Single catch certs.",
+      "referenceNumber": "CHEDP.GB.2024.5328437"
+    },
+    {
+      "scenario": "PHA: Multiple catch certs.",
+      "referenceNumber": "CHEDP.GB.2024.5249145"
+    },
+    {
+      "scenario": "PHA: Version 3 (V 3).",
+      "referenceNumber": "CHEDP.GB.2024.5140733"
+    },
+    {
+      "scenario": "PHA: Groupage, TODCOF.",
+      "referenceNumber": "CHEDP.GB.2024.5192091"
+    },
+    {
+      "scenario": "PHA: Transit Poland-Harwich-Holyhead.",
+      "referenceNumber": "CHEDP.GB.2024.5270338"
     }
   ]
 }
