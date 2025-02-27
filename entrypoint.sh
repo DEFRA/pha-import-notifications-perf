@@ -10,7 +10,7 @@ export HTTPS_PROXY=http://localhost:3128
 
 k6 run \
   -e K6_TARGET_URL=https://pha-import-notifications.perf-test.cdp-int.defra.cloud \
-  -e K6_WORKLOAD=stress80 \
+  -e K6_WORKLOAD=stress100 \
   -e K6_THRESHOLD=low \
   -e TEST_CLIENT_LOGIN_URL=${TEST_CLIENT_LOGIN_URL} \
   -e TEST_CLIENT_APP_ID=${TEST_CLIENT_APP_ID} \
