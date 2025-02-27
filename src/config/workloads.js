@@ -27,7 +27,7 @@ const config = {
   stress120: {
     executor: 'constant-arrival-rate',
     duration: '15m',
-    preAllocatedVUs: 100,
+    preAllocatedVUs: 200,
     rate: 1440,
     timeUnit: '15m',
   },
@@ -35,7 +35,7 @@ const config = {
   stress140: {
     executor: 'constant-arrival-rate',
     duration: '15m',
-    preAllocatedVUs: 100,
+    preAllocatedVUs: 300,
     rate: 1680,
     timeUnit: '15m',
   },
