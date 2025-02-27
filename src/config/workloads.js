@@ -39,11 +39,43 @@ const config = {
     rate: 1680,
     timeUnit: '15m',
   },
-  // Ramp up to 150 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
-  spike: {
+  // Ramp up to 100 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
+  spike100: {
     executor: 'ramping-vus',
     stages: [
-      {duration: '1m', target: 150},
+      {duration: '1m', target: 100},
+      {duration: '30s', target: 0},
+    ],
+  },
+  // Ramp up to 200 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
+  spike200: {
+    executor: 'ramping-vus',
+    stages: [
+      {duration: '1m', target: 200},
+      {duration: '30s', target: 0},
+    ],
+  },
+  // Ramp up to 300 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
+  spike300: {
+    executor: 'ramping-vus',
+    stages: [
+      {duration: '1m', target: 300},
+      {duration: '30s', target: 0},
+    ],
+  },
+  // Ramp up to 400 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
+  spike400: {
+    executor: 'ramping-vus',
+    stages: [
+      {duration: '1m', target: 400},
+      {duration: '30s', target: 0},
+    ],
+  },
+  // Ramp up to 500 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
+  spike500: {
+    executor: 'ramping-vus',
+    stages: [
+      {duration: '1m', target: 500},
       {duration: '30s', target: 0},
     ],
   },
