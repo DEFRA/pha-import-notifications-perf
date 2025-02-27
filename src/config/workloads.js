@@ -7,12 +7,36 @@ const config = {
     rate: 12,
     timeUnit: '15m',
   },
-  // 1440 iterations of the user journey over 15 mins (120x average volume of traffic)
-  stress: {
+  // 960 iterations of the user journey over 15 mins (80x average volume of traffic)
+  stress80: {
     executor: 'constant-arrival-rate',
     duration: '15m',
-    preAllocatedVUs: 40,
+    preAllocatedVUs: 50,
     rate: 1440,
+    timeUnit: '15m',
+  },
+  // 1200 iterations of the user journey over 15 mins (100x average volume of traffic)
+  stress100: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 50,
+    rate: 1200,
+    timeUnit: '15m',
+  },
+  // 1440 iterations of the user journey over 15 mins (120x average volume of traffic)
+  stress120: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 50,
+    rate: 1440,
+    timeUnit: '15m',
+  },
+  // 1680 iterations of the user journey over 15 mins (140x average volume of traffic)
+  stress140: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 50,
+    rate: 1680,
     timeUnit: '15m',
   },
   // Ramp up to 150 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
