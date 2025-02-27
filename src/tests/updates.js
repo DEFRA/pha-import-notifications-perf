@@ -1,5 +1,4 @@
 import {check, group} from 'k6';
-import {SharedArray} from 'k6/data';
 import {threshold} from '../config/thresholds.js';
 import {workload} from '../config/workloads.js';
 import {htmlReport} from '../libs/k6-reporter-2.3.0.js';
@@ -12,12 +11,6 @@ export const options = {
   },
   thresholds: threshold,
 };
-
-const testData = new SharedArray('import notifications', function () {
-  return JSON.parse(
-    open('../data/import-notifications.json')
-  ).importNotifications;
-});
 
 export function setup() {
   const tokenUrl = __ENV.TEST_CLIENT_LOGIN_URL;
@@ -41,17 +34,21 @@ export default function (accessToken) {
         r.json().hasOwnProperty('importNotifications'),
     });
 
-    // Results in 14 requests, the target (average) is 13.175859517
-    for (const importNotification of testData) {
+    const referenceNumbers = response
+      .json()
+      .importNotifications.map((item) => item.referenceNumber)
+      .slice(0, 14);
+
+    for (const referenceNumber of referenceNumbers) {
       const response = service.getImportNotification(
         accessToken,
-        importNotification.referenceNumber
+        referenceNumber
       );
 
       check(response, {
         'is status 200': (r) => r.status === 200,
         'verify reference number': (r) =>
-          r.json().referenceNumber === importNotification.referenceNumber,
+          r.json().referenceNumber === referenceNumber,
       });
     }
   });
