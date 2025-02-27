@@ -12,7 +12,7 @@ const config = {
     executor: 'constant-arrival-rate',
     duration: '15m',
     preAllocatedVUs: 50,
-    rate: 1440,
+    rate: 960,
     timeUnit: '15m',
   },
   // 1200 iterations of the user journey over 15 mins (100x average volume of traffic)
