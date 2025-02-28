@@ -39,6 +39,70 @@ const config = {
     rate: 1680,
     timeUnit: '15m',
   },
+  // 1920 iterations of the user journey over 15 mins (160x average volume of traffic)
+  stress160: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 1920,
+    timeUnit: '15m',
+  },
+  // 2160 iterations of the user journey over 15 mins (180x average volume of traffic)
+  stress180: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 2160,
+    timeUnit: '15m',
+  },
+  // 2400 iterations of the user journey over 15 mins (200x average volume of traffic)
+  stress200: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 2400,
+    timeUnit: '15m',
+  },
+  // 2640 iterations of the user journey over 15 mins (220x average volume of traffic)
+  stress220: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 2640,
+    timeUnit: '15m',
+  },
+  // 2880 iterations of the user journey over 15 mins (240x average volume of traffic)
+  stress240: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 2880,
+    timeUnit: '15m',
+  },
+  // 3120 iterations of the user journey over 15 mins (260x average volume of traffic)
+  stress260: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 3120,
+    timeUnit: '15m',
+  },
+  // 3360 iterations of the user journey over 15 mins (280x average volume of traffic)
+  stress280: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 3360,
+    timeUnit: '15m',
+  },
+  // 3600 iterations of the user journey over 15 mins (300x average volume of traffic)
+  stress300: {
+    executor: 'constant-arrival-rate',
+    duration: '15m',
+    preAllocatedVUs: 300,
+    rate: 3600,
+    timeUnit: '15m',
+  },
   // Ramp up to 100 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
   spike100: {
     executor: 'ramping-vus',
