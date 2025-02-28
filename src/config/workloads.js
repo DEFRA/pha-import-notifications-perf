@@ -7,139 +7,19 @@ const config = {
     rate: 12,
     timeUnit: '15m',
   },
-  // 960 iterations of the user journey over 15 mins (80x average volume of traffic)
-  stress80: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 50,
-    rate: 960,
-    timeUnit: '15m',
-  },
-  // 1200 iterations of the user journey over 15 mins (100x average volume of traffic)
-  stress100: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 50,
-    rate: 1200,
-    timeUnit: '15m',
-  },
-  // 1440 iterations of the user journey over 15 mins (120x average volume of traffic)
-  stress120: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 200,
-    rate: 1440,
-    timeUnit: '15m',
-  },
-  // 1680 iterations of the user journey over 15 mins (140x average volume of traffic)
-  stress140: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 1680,
-    timeUnit: '15m',
-  },
-  // 1920 iterations of the user journey over 15 mins (160x average volume of traffic)
-  stress160: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 1920,
-    timeUnit: '15m',
-  },
   // 2160 iterations of the user journey over 15 mins (180x average volume of traffic)
-  stress180: {
+  stress: {
     executor: 'constant-arrival-rate',
     duration: '15m',
     preAllocatedVUs: 300,
     rate: 2160,
     timeUnit: '15m',
   },
-  // 2400 iterations of the user journey over 15 mins (200x average volume of traffic)
-  stress200: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 2400,
-    timeUnit: '15m',
-  },
-  // 2640 iterations of the user journey over 15 mins (220x average volume of traffic)
-  stress220: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 2640,
-    timeUnit: '15m',
-  },
-  // 2880 iterations of the user journey over 15 mins (240x average volume of traffic)
-  stress240: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 2880,
-    timeUnit: '15m',
-  },
-  // 3120 iterations of the user journey over 15 mins (260x average volume of traffic)
-  stress260: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 3120,
-    timeUnit: '15m',
-  },
-  // 3360 iterations of the user journey over 15 mins (280x average volume of traffic)
-  stress280: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 3360,
-    timeUnit: '15m',
-  },
-  // 3600 iterations of the user journey over 15 mins (300x average volume of traffic)
-  stress300: {
-    executor: 'constant-arrival-rate',
-    duration: '15m',
-    preAllocatedVUs: 300,
-    rate: 3600,
-    timeUnit: '15m',
-  },
-  // Ramp up to 100 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
-  spike100: {
+  // Ramp up to 50 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
+  spike: {
     executor: 'ramping-vus',
     stages: [
-      {duration: '1m', target: 100},
-      {duration: '30s', target: 0},
-    ],
-  },
-  // Ramp up to 200 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
-  spike200: {
-    executor: 'ramping-vus',
-    stages: [
-      {duration: '1m', target: 200},
-      {duration: '30s', target: 0},
-    ],
-  },
-  // Ramp up to 300 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
-  spike300: {
-    executor: 'ramping-vus',
-    stages: [
-      {duration: '1m', target: 300},
-      {duration: '30s', target: 0},
-    ],
-  },
-  // Ramp up to 400 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
-  spike400: {
-    executor: 'ramping-vus',
-    stages: [
-      {duration: '1m', target: 400},
-      {duration: '30s', target: 0},
-    ],
-  },
-  // Ramp up to 500 virtual users in 1 min with each virtual user completing as many iterations of the user journey as possible
-  spike500: {
-    executor: 'ramping-vus',
-    stages: [
-      {duration: '1m', target: 500},
+      {duration: '1m', target: 50},
       {duration: '30s', target: 0},
     ],
   },
