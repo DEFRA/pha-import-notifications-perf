@@ -23,8 +23,8 @@ export function setup() {
 export default function (accessToken) {
   group('PHA import notifications updates', function () {
     const bcp = 'GBTEEP1';
-    const from = '2025-01-07T10:21:28.3970000Z';
-    const to = '2025-01-07T10:21:38.3970000Z';
+    const from = '2025-03-07T11:30:06.123Z';
+    const to = '2025-03-07T11:33:06.123Z';
 
     const response = service.getUpdates(accessToken, bcp, from, to);
 
