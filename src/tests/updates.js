@@ -28,6 +28,8 @@ export default function (accessToken) {
 
     const response = service.getUpdates(accessToken, bcp, from, to);
 
+    console.log(response);
+
     check(response, {
       'is status 200': (r) => r.status === 200,
       'has import notifications': (r) =>
@@ -42,7 +44,7 @@ export default function (accessToken) {
     for (const referenceNumber of referenceNumbers) {
       const response = service.getImportNotification(
         accessToken,
-        referenceNumber
+        referenceNumber,
       );
 
       check(response, {
