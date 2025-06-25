@@ -8,10 +8,6 @@ K6_SUMMARY=summary.json
 
 export HTTPS_PROXY=http://localhost:3128
 
-echo $TEST_CLIENT_LOGIN_URL
-echo $TEST_CLIENT_APP_ID
-echo $TEST_CLIENT_SECRET
-
 k6 run \
   -e K6_TARGET_URL=https://pha-import-notifications.perf-test.cdp-int.defra.cloud \
   -e K6_WORKLOAD=${K6_WORKLOAD} \

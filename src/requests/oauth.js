@@ -21,8 +21,6 @@ export function getAccessToken(tokenUrl, clientId, clientSecret) {
 
   const response = http.post(url, body, params);
 
-  console.log(response);
-
   check(response, {
     'is status 200': (r) => r.status === 200,
     'has access token': (r) => r.json().hasOwnProperty('access_token'),
