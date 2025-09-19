@@ -3,8 +3,5 @@
   "version": "0.14.0",
   "description": "Performance tests for PHA import notifications.",
   "author": "Defra DDTS",
-  "license": "OGL-UK-3.0",
-  "devDependencies": {
-    "@types/k6": "^0.54.2"
-  }
+  "license": "OGL-UK-3.0"
 }
