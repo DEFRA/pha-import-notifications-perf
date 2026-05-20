@@ -1,7 +1,29 @@
 {
   "name": "pha-import-notifications-perf",
-  "version": "0.14.0",
-  "description": "Performance tests for PHA import notifications.",
+  "version": "0.91.0",
+  "description": "Performance tests for PHA import notifications service.",
+  "license": "OGL-UK-3.0",
   "author": "Defra DDTS",
-  "license": "OGL-UK-3.0"
+  "scripts": {
+    "format": "npx prettier --write 'src/**/*.js' '**/*.{js,md,json,config.js}'",
+    "format:check": "npx prettier --check 'src/**/*.js' '**/*.{js,md,json,config.js}'",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "prepare": "npx husky",
+    "pretest": "npx rimraf reports && npx mkdirp reports",
+    "test": "k6 run src/tests/main.js"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/k6": "^1.7.0",
+    "eslint": "^10.2.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "globals": "^17.5.0",
+    "husky": "^9.1.7",
+    "k6": "^0.0.0",
+    "mkdirp": "^3.0.1",
+    "prettier": "3.8.3",
+    "rimraf": "^6.1.3"
+  }
 }

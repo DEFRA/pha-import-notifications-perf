@@ -1,21 +1,20 @@
-FROM grafana/k6:latest
+FROM grafana/k6:1.7.1
 
 ENV TZ="Europe/London"
 
 USER root
 
 RUN apk add --no-cache \
-   aws-cli \
-   bash \
-   curl
+  aws-cli \
+  curl \
+  nodejs \
+  npm
 
 USER k6
 
-WORKDIR /opt/perftest
+WORKDIR /k6
 
-COPY src/ ./src/
-COPY entrypoint.sh .
+COPY . .
+RUN npm ci
 
-ENV S3_ENDPOINT=https://s3.eu-west-2.amazonaws.com
-
-ENTRYPOINT [ "./entrypoint.sh" ]
+ENTRYPOINT [ "./scripts/entrypoint.sh" ]
