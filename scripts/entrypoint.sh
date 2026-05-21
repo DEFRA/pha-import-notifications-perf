@@ -2,6 +2,8 @@
 
 echo "run_id: $RUN_ID"
 
+export HTTPS_PROXY=http://localhost:3128
+
 npm run format:check
 npm run lint
 npm test || test_exit_code=$?
