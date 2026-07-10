@@ -15,6 +15,9 @@ USER k6
 WORKDIR /k6
 
 COPY . .
+
 RUN npm ci
+RUN npm run format:check
+RUN npm run lint
 
 ENTRYPOINT [ "./scripts/entrypoint.sh" ]
