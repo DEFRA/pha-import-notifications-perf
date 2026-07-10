@@ -74,12 +74,6 @@ Build as follows:
 npm install
 ```
 
-Generate test fixtures as follows:
-
-```bash
-npm run generate-fixtures
-```
-
 Run as follows:
 
 ```bash
