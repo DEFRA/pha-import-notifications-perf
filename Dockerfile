@@ -1,5 +1,4 @@
-FROM grafana/k6:1.7.1
-
+FROM grafana/k6:2.1.0
 ENV TZ="Europe/London"
 
 USER root
@@ -15,6 +14,9 @@ USER k6
 WORKDIR /k6
 
 COPY . .
+
 RUN npm ci
+RUN npm run format:check
+RUN npm run lint
 
 ENTRYPOINT [ "./scripts/entrypoint.sh" ]
