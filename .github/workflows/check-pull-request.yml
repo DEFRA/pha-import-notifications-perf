@@ -65,9 +65,7 @@ jobs:
         uses: grafana/setup-k6-action@db07bd9765aac508ef18982e52ab937fe633a065 # v1.2.1
 
       - name: Run smoke test
-        uses: grafana/run-k6-action@de51a7390bdf0ac85a3bef493691bd71d4c7c158 # v1.4.0
-        with:
-          path: ./src/main.js
+        run: npm run test
 
       - name: Upload test report
         if: always()
@@ -78,7 +76,7 @@ jobs:
 
       - name: Capture Docker Compose logs
         if: always()
-        working-directory: trade-gateway-local-environment
+        working-directory: pha-import-notifications-local
         run: docker compose logs > logs.txt
 
       - name: Upload Docker Compose logs
@@ -86,4 +84,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: docker-compose-logs
-          path: trade-gateway-local-environment/logs.txt
+          path: pha-import-notifications-local/logs.txt
