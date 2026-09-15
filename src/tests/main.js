@@ -11,7 +11,7 @@ import http from 'k6/http';
 export const options = profile;
 
 export function setup() {
-  const clientId = __ENV.CLIENT_ID;
+  const clientId = __ENV.CLIENT_ID || 'LocalDev';
   const clientSecret = __ENV.CLIENT_SECRET;
 
   const encodedCredentials = encoding.b64encode(`${clientId}:${clientSecret}`);
@@ -28,13 +28,7 @@ export function setup() {
     client_secret: clientSecret,
   };
 
-  let res;
-
-  if (!__ENV.ENVIRONMENT || __ENV.ENVIRONMENT === 'local') {
-    res = http.get(env.tokenUrl);
-  } else {
-    res = http.post(env.tokenUrl, body, params);
-  }
+  const res = http.post(`${env.tokenUrl}/oauth2/token`, body, params);
 
   check(res, {
     'is status 200': (r) => r.status === 200,
