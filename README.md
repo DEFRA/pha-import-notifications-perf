@@ -42,11 +42,11 @@ Install the following:
 
 Create `.env` file in the root of the project and provide necessary secrets (copy `.env.example`).
 
-| Environment variable | Description                                                                                                                                                 |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ENVIRONMENT_SUFFIX` | Environment suffix, see [list](https://portal.cdp-int.defra.cloud/documentation/how-to/apis.md#what-are-the-login-urls-for-my-api) of available values.(\*) |
-| `CLIENT_ID`          | Allocated client id.(\*)                                                                                                                                    |
-| `CLIENT_SECRET`      | Allocated client id.(\*)                                                                                                                                    |
+| Environment variable | Description                                                                                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ENVIRONMENT_SUFFIX` | Environment suffix, see [list](https://portal.cdp-int.defra.cloud/documentation/how-to/apis.md#what-are-the-login-urls-for-my-api) of available values. \* |
+| `CLIENT_ID`          | Allocated client id. Default `LocalDev`.                                                                                                                   |
+| `CLIENT_SECRET`      | Allocated client id. \*                                                                                                                                    |
 
 \* Only required when running tests on CDP.
 
