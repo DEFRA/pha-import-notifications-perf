@@ -4,6 +4,9 @@
   "description": "Performance tests for PHA import notifications service.",
   "license": "OGL-UK-3.0",
   "author": "Defra DDTS",
+  "engines": {
+    "node": ">=24.22.1"
+  },
   "scripts": {
     "format": "npx prettier --write 'src/**/*.js' '**/*.{js,md,json,config.js}'",
     "format:check": "npx prettier --check 'src/**/*.js' '**/*.{js,md,json,config.js}'",
